@@ -31,7 +31,7 @@ const create = async (item, imagem, peso, pontos, usuarioId) => {
 module.exports.create = create;
 
 const read = async (reciclagemId) => {
-    const reciclagem = await Reciclagem.findOne({_id: new mongoose.Types.ObjectId(reciclagemId)});
+    const reciclagem = await Reciclagem.findOne({_id: new mongoose.Types.ObjectId(reciclagemId)}).populate("usuario").exec;
     return reciclagem;
 }
 
